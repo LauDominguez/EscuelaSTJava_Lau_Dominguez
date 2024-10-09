@@ -73,28 +73,45 @@ public class Alumno {
     }
 
     public double peorNota() {
-        return 0.0;
+        double min = this.notas[0];
+
+        for(int i=1; i < this.notas.length; i++){
+            if(notas[i]< min){
+                min = notas[i];
+            }
+        }
+
+        return min;
     }
 
     public double mejorNota(){
-        return 0.0;
-    }
+        double max = 0;
 
-  /*  public double promedioNota(double [] nota){
-        int sumaNota = 0;
-
-        for (double num : nota){
-            sumaNota += num;
+        for(int i=0; i < this.notas.length; i++){
+            if(notas[i]>max){
+                max = notas[i];
+            }
         }
-        return (double)  sumaNota / nota.length;
-    }
-    double promedio = promedioNota(notas); */
-
-    public double promedioNota(){
-        return 0.0;
+        return max;
     }
 
-    public String evaluarSituacionAcademica(){
-        return "desarrollar cod";
+  public double promedioNota(){
+        double sumaNota = 0;
+
+        for (double nota : this.notas){
+            sumaNota = sumaNota + nota;
+        }
+        return sumaNota / this.getNotas().length;
+    }
+
+
+       public String evaluarSituacionAcademica(){
+        if(this.promedioNota()>=4){
+            return  "La situacion academica de " +this.getNombre() +" " +this.getApellido() + "es aprobado :)";
+        }
+        else {
+            return  "La situacion academica de " +this.getNombre() +" " +this.getApellido() + "es desaprobado :(";
+        }
+
     }
 }
