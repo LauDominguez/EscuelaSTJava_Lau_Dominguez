@@ -21,14 +21,49 @@ public class APP {
             System.out.println("-------- 5) Situacion Academica Alumno -------");
             System.out.println("-------- 6) Salir -------------------");
             System.out.println("-------------------------------------");
-            System.out.println("-------- Por favor ingrese una opción para continuar -------");
+            System.out.println("-------- Por favor ingrese una opción del 1 al 6 para continuar -------");
+
 
             opcion = Leer.datoInt();
 
             switch (opcion){
                 case 1:
                     //opcion 1 (Ingreso)
-                    System.out.println("Opcion 1");
+                    System.out.println("Ingrese el Nombre del Alumno");
+                    nombre = Leer.dato();
+
+                    System.out.println("Ingrese el Apellido del Alumno");
+                    apellido = Leer.dato();
+
+                    System.out.println("Ingrese la dirección del Alumno");
+                    direccion = Leer.dato();
+
+                    System.out.println("Ingrese el Curso del Alumno");
+                    curso = Leer.dato();
+
+                    System.out.println("Ingrese la edad del Alumno");
+                    edad = Leer.datoInt();
+
+                    int cantdeNotas; // entre 3 y 7 notas
+                    do{
+                        System.out.println("Ingrese la cantidad de notas del alumno, mínimo 3, maximo 7");
+                        cantdeNotas = Leer.datoInt();
+
+
+
+                    }while(cantdeNotas < 3 || cantdeNotas> 7);
+                    notas = new double[cantdeNotas];
+
+                    for( int i=0; i < notas.length; i++){
+
+                        do {
+                            System.out.println("Ingrese nota nro" + (i+1));
+                            notas[i] = Leer.datoDouble();
+                        }while(notas[i] < 1 || notas[i] > 10);
+                    }
+
+                    nombre = Leer.dato();
+
                     break;
                 case 2:
                     //opcion 2 (nota peor)
@@ -47,6 +82,6 @@ public class APP {
                     System.out.println("Opcion 5");
                     break;
             }
-        } while (opcion <=  6);
+        } while (opcion !=  6);
     }
 }
