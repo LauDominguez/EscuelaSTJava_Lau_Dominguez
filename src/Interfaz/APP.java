@@ -38,8 +38,7 @@ public class APP {
                     System.out.println("Ingrese la dirección del Alumno");
                     direccion = Leer.dato();
 
-                    System.out.println("Ingrese el Curso del Alumno");
-                    curso = Leer.dato();
+
 
                     System.out.println("Ingrese la edad del Alumno");
                     edad = Leer.datoInt();
@@ -62,24 +61,47 @@ public class APP {
                         }while(notas[i] < 1 || notas[i] > 10);
                     }
 
-                    nombre = Leer.dato();
+                    System.out.println("Ingrese el Curso del Alumno");
+                    curso = Leer.dato();
 
+                    alumno = new Alumno(nombre,apellido,direccion,edad,notas,curso);
+
+                    System.out.println("El alumno" + alumno.getNombre() + " " + alumno.getApellido() + " " + "se registro correctamente");
                     break;
+                    
                 case 2:
                     //opcion 2 (nota peor)
-                    System.out.println("Opcion 2");
+                    if (alumno ==null){
+                        System.out.println("El alumno no está registrado");
+                    }else{
+                        System.out.println("La peor nota de " + alumno.getNombre() +" " + alumno.getApellido() + " es " + alumno.peorNota());
+                    }
+
                     break;
                 case 3:
                     //opcion 3 (nota mayor)
-                    System.out.println("Opcion 3");
+                    if (alumno ==null){
+                        System.out.println("El alumno no está registrado");
+                    }else{
+                        System.out.println("La mejor nota de " + alumno.getNombre() +" " + alumno.getApellido() + " es " + alumno.mejorNota());
+                    }
+
                     break;
                 case 4:
                     //opcion 4 (promedio)
-                    System.out.println("Opcion 4");
+                    if (alumno ==null){
+                        System.out.println("El alumno no está registrado");
+                    }else{
+                        System.out.println("El promedio de" + alumno.getNombre() +" " + alumno.getApellido() + " es " + alumno.promedioNota());
+                    }
                     break;
                 case 5:
                     //opcion 5 (situacion academica)
-                    System.out.println("Opcion 5");
+                    if (alumno ==null){
+                        System.out.println("El alumno no está registrado");
+                    }else{
+                        System.out.println(alumno.evaluarSituacionAcademica());
+                    }
                     break;
             }
         } while (opcion !=  6);
